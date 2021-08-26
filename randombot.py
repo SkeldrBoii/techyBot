@@ -16,8 +16,6 @@ async def helper():
 @client.event
 async def on_ready():
     print("bot running lets go")
-    while True:
-        await helper()
 
 @client.event
 async def on_message(message):
