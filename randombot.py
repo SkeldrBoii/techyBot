@@ -21,7 +21,7 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith("b!help"):
         embed=discord.Embed(color=0x00ff40)
-        embed.add_field(name="Commands", value="b!placeholder\nb!placeholder", inline=False)
+        embed.add_field(name="Commands", value="b!suggest [suggestion]\nb!placeholder", inline=False)
         embed.set_footer(icon_url=message.author.avatar_url, text='\nRequested by:\n{0}'.format(message.author))
         await message.channel.send(embed=embed)
 
