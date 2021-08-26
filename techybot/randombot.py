@@ -8,11 +8,16 @@ from discord.ext.commands import Bot
 client = Bot('!')
 
 
+async def helper():
+    return
+
 
 
 @client.event
 async def on_ready():
     print("bot running")
+    while True:
+        await helper()
 
 @client.event
 async def on_message(message):
@@ -44,7 +49,7 @@ async def on_message(message):
         
 
 
-
+# hi very epic
 
 
 client.run('ODgwMTM4MjgzOTMyMzQwMjQ1.YSZ6pw.GlMN5XcDRyaKL385W4hW-QkvumU')
