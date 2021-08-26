@@ -17,6 +17,12 @@ async def helper():
 async def on_ready():
     print("bot running lets go")
 
+async def on_raw_reaction_add(payload):
+    emoji = str(payload.emoji)
+    if payload.event_type == 'REACTION_ADD':
+        member = client.get_user(payload.user_id)
+
+
 @client.event
 async def on_message(message):
     if message.content.startswith("b!help"):
