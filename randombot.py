@@ -5,7 +5,12 @@ from discord.utils import get
 from discord.ext import commands
 from discord.ext.commands import Bot
 
-client = Bot('!')
+# modules
+
+
+intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
+client = commands.Bot(intents = intents, command_prefix = 'p!')
+
 
 
 async def helper():
