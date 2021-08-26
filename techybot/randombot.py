@@ -15,7 +15,7 @@ async def helper():
 
 @client.event
 async def on_ready():
-    print("bot running")
+    print("bot running lets go")
     while True:
         await helper()
 
@@ -49,7 +49,7 @@ async def on_message(message):
         
 
 
-# hi very epic
+# hi very epiccc
 
 
 client.run('ODgwMTM4MjgzOTMyMzQwMjQ1.YSZ6pw.GlMN5XcDRyaKL385W4hW-QkvumU')
