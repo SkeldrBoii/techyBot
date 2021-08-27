@@ -26,16 +26,13 @@ async def on_ready():
 @client.event
 async def on_raw_reaction_add(payload):
     emoji = payload.emoji.name
-    print(emoji)
     if payload.event_type == 'REACTION_ADD':
         guild = await client.fetch_guild(payload.guild_id)
         if emoji == '👍':
             if guild is not None:
                 member = payload.member
-                print(member)
                 roleadd = discord.utils.get(guild.roles, name="reaction test")
                 await member.add_roles(roleadd)
-            
         
 
 
@@ -63,12 +60,5 @@ async def on_message(message):
             errorMsg.set_footer(icon_url=message.author.avatar_url, text='\nRequested by:\n{0}'.format(message.author))
             await message.channel.send(embed=errorMsg)
 
-        
-
-        
-        
-
-
-# hi very epiccc
 
 client.run(open("token.txt").read())
