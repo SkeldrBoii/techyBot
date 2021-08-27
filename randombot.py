@@ -4,6 +4,7 @@ import datetime
 from discord.utils import get
 from discord.ext import commands
 from discord.ext.commands import Bot
+import emoji
 
 # modules
 
@@ -24,14 +25,17 @@ async def on_ready():
 
 @client.event
 async def on_raw_reaction_add(payload):
-    emoji = str(payload.emoji)
+    emoji = payload.emoji.name
     print(emoji)
     if payload.event_type == 'REACTION_ADD':
-        member = client.get_user(payload.user_id)
-        if member == client:
-            return
+        guild = await client.fetch_guild(payload.guild_id)
         if emoji == '👍':
-            member.add_roles(880692843000262666)
+            if guild is not None:
+                member = payload.member
+                print(member)
+                roleadd = discord.utils.get(guild.roles, name="reaction test")
+                await member.add_roles(roleadd)
+            
         
 
 
