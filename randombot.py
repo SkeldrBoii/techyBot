@@ -22,12 +22,16 @@ async def helper():
 async def on_ready():
     print("bot running lets go")
 
+@client.event
 async def on_raw_reaction_add(payload):
     emoji = str(payload.emoji)
+    print(emoji)
     if payload.event_type == 'REACTION_ADD':
         member = client.get_user(payload.user_id)
         if member == client:
             return
+        if emoji == '👍':
+            member.add_roles(880692843000262666)
         
 
 
