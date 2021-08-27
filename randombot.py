@@ -10,7 +10,7 @@ import emoji
 
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
-client = commands.Bot(intents = intents, command_prefix = 'p!')
+client = commands.Bot(intents = intents, command_prefix = 'b!')
 
 
 
@@ -21,7 +21,8 @@ async def helper():
 
 @client.event
 async def on_ready():
-    print("bot running lets go")
+    print("bot running")
+
 
 @client.event
 async def on_raw_reaction_add(payload):
@@ -31,10 +32,11 @@ async def on_raw_reaction_add(payload):
         if emoji == '👍':
             if guild is not None:
                 member = payload.member
+                if client == member:
+                    return
                 roleadd = discord.utils.get(guild.roles, name="reaction test")
                 await member.add_roles(roleadd)
         
-
 
 @client.event
 async def on_message(message):
