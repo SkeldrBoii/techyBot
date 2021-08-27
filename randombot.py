@@ -26,6 +26,9 @@ async def on_raw_reaction_add(payload):
     emoji = str(payload.emoji)
     if payload.event_type == 'REACTION_ADD':
         member = client.get_user(payload.user_id)
+        if member == client:
+            return
+        
 
 
 @client.event
