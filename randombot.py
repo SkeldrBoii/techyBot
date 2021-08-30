@@ -15,13 +15,18 @@ client = commands.Bot(intents = intents, command_prefix = 'b!')
 
 
 async def helper():
-    return
+    guild = client.get_guild()
+    for member in guild.members:
+        if isinstance(member.activity, discord.CustomActivity):
+            if member.activity.lower() == "league of legends":
+                await member.ban(reason="league player lmao")
 
 
 
 @client.event
 async def on_ready():
     print("bot running")
+    await helper()
 
 
 @client.event
@@ -36,7 +41,7 @@ async def on_raw_reaction_add(payload):
                     return
                 roleadd = discord.utils.get(guild.roles, name="reaction test")
                 await member.add_roles(roleadd)
-        
+
 
 @client.event
 async def on_message(message):
