@@ -19,7 +19,8 @@ async def helper():
     for member in guild.members:
         if isinstance(member.activity, discord.CustomActivity):
             if member.activity.lower() == "league of legends":
-                await member.ban(reason="league player lmao")
+                channel = '877635027712770118'
+                await channel.send("<@", member, "> is playing league bruh")
 
 
 
